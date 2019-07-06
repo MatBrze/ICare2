@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from ICare_App import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.MainView.as_view(), name='index'),
+    path('register/', views.RegisterView.as_view(), name='register')
 ]
