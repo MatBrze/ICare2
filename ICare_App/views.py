@@ -12,3 +12,9 @@ class RegisterView(View):
 
     def get(self, request):
         return render(request, 'register.html')
+
+
+class DonateView(View):
+
+    def get(self, request):
+        return render(request, 'form.html')
