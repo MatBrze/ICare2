@@ -9,8 +9,9 @@ class Item(models.Model):
 
 
 class Organisation(models.Model):
+    type = models.CharField(max_length=50, default='')
     name = models.CharField(max_length=50)
-    required_items = models.ForeignKey(Item, on_delete=models.CASCADE)
+    required_items = models.ManyToManyField(Item)
     location = models.CharField(max_length=50)
     target = models.CharField(max_length=50)
 
@@ -19,7 +20,7 @@ class Organisation(models.Model):
 
 
 class Donation(models.Model):
-    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    item = models.ManyToManyField(Item)
     quantity = models.IntegerField()
     organisation = models.ForeignKey(Organisation, on_delete=models.CASCADE)
     street = models.CharField(max_length=50)
