@@ -2,3 +2,7 @@
 .idea/
 venv/
 ICare/__pycache__/
+/local_settings.py
+ICare_App/__pycache__/
+ICare_App/migrations/
+__pycache__/

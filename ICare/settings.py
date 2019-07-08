@@ -75,15 +75,10 @@ WSGI_APPLICATION = 'ICare.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'NAME': 'oddam',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'postgres',
-        'PASSWORD': 'coderslab',
-        'HOST': 'localhost'
-    }
-}
+try:
+    from local_settings import *
+except ImportError:
+    pass
 
 
 # Password validation
