@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
+from django.contrib import messages
+
+from ICare_App.forms import UserRegisterForm
 
 
 class MainView(View):
@@ -11,7 +14,17 @@ class MainView(View):
 class RegisterView(View):
 
     def get(self, request):
-        return render(request, 'register.html')
+        form = UserRegisterForm()
+        return render(request, 'register.html', {'form': form})
+
+    def post(self, request):
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Konto zostało utworzone! Zaloguj się')
+            return redirect('login')
+
+        return render(request, 'register.html', {'form': form})
 
 
 class DonateView(View):
