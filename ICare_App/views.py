@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
-
+from django.contrib.auth.models import User
 from ICare_App.forms import UserRegisterForm
 
 
@@ -21,7 +21,8 @@ class RegisterView(View):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Konto zostało utworzone! Zaloguj się')
+            user_email = form.cleaned_data.get('email')
+            messages.success(request, f'Konto dla {user_email} zostało utworzone! Zaloguj się')
             return redirect('login')
 
         return render(request, 'register.html', {'form': form})
