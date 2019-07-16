@@ -118,5 +118,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+LOGIN_REDIRECT_URL = 'ICare_App:donate'
+LOGIN_URL = 'login'
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
