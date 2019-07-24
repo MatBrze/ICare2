@@ -3,6 +3,7 @@
   <head>
       {% load static %}
       <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+      <script src="{% static 'js/register.js' %}"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -30,16 +31,16 @@
         <h2>Załóż konto</h2>
         <form method="POST" class="center">
             {% csrf_token %}
-            <div class="form-group">
+            <div id="user" class="form-group">
                 {{ form.username }}
             </div>
-            <div class="form-group">
+            <div id="email" class="form-group">
                 {{ form.email }}
             </div>
-            <div class="form-group">
+            <div id="pass1" class="form-group">
                 {{ form.password1 }}
             </div>
-            <div class="form-group">
+            <div id="pass2" class="form-group">
                 {{ form.password2 }}
             </div>
 

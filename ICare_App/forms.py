@@ -6,15 +6,10 @@ from .models import Contact
 
 
 class UserRegisterForm(UserCreationForm):
-    # email = forms.EmailField()
 
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
-        widgets = {
-            'username': forms.TextInput(attrs={'placeholder': 'Login'}),
-            'email': forms.TextInput(attrs={'placeholder': 'E-Mail'}),
-        }
 
 
 class ContactForm(forms.ModelForm):
