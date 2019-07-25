@@ -121,3 +121,5 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'ICare_App:donate'
 LOGIN_URL = 'login'
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
+
+AUTHENTICATION_BACKENDS = ('ICare_App.backends.EmailBackend', )
