@@ -31,4 +31,8 @@ class RegisterView(View):
 class DonateView(View):
 
     def get(self, request):
-        return render(request, 'form.html')
+        logged_user = request.user.username
+        ctx = {
+            'user': logged_user
+        }
+        return render(request, 'form.html', ctx)
